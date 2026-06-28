@@ -32,8 +32,8 @@ export const ARTIFACTS = [
     size: '高 3.5cm · 口径 13cm',
     collection: '故宫博物院',
     desc: '汝窑为宋代五大名窑之首，以天青色釉著称。此洗釉色莹润如玉，开片细密，宛若冰裂，底有细小支钉痕迹，尽显宋人极简美学之精髓。',
-    thumb: '/assets/image_9_ho5s6f.svg',
-    images: ['/assets/image_9_ho5s6f.svg', '/assets/image_0_yi19x4.jpg'],
+    thumb: './assets/image_9_ho5s6f.svg',
+    images: ['./assets/image_9_ho5s6f.svg', './assets/image_0_yi19x4.jpg'],
     emotionalHook: '一千年前的某个清晨，河南宝丰的匠人将它从窑中取出，天青色的釉面在晨光中微微闪烁，仿佛雨过天晴后的一抹云霞落入掌心。',
     quiz: {
       question: '这件天青釉洗来自哪个窑口？',
@@ -45,7 +45,7 @@ export const ARTIFACTS = [
       { x: 0.35, y: 0.42, text: '玛瑙入釉，釉面温润如玉' },
       { x: 0.68, y: 0.55, text: '细小支钉痕，满釉支烧工艺' }
     ],
-    angleImages: ['/assets/image_9_ho5s6f.svg']
+    angleImages: ['./assets/image_9_ho5s6f.svg']
   },
   {
     id: 'ru-bowl',
@@ -56,8 +56,8 @@ export const ARTIFACTS = [
     size: '高 6.5cm · 口径 17cm',
     collection: '台北故宫博物院',
     desc: '此碗造型端秀，釉色天青略偏灰蓝，釉面温润如玉，开片自然。足部有三枚细小支钉痕，为汝窑典型工艺特征。',
-    thumb: '/assets/image_1_67b479.svg',
-    images: ['/assets/image_1_67b479.svg'],
+    thumb: './assets/image_1_67b479.svg',
+    images: ['./assets/image_1_67b479.svg'],
     emotionalHook: '宋人饮茶时，茶汤与天青釉色交相辉映，这一只碗，盛过的不只是茶汤，更是一个时代的闲雅与从容。',
     quiz: {
       question: '汝窑天青釉碗足部常见的支钉数量是？',
@@ -75,8 +75,8 @@ export const ARTIFACTS = [
     size: '高 8cm · 口径 19cm',
     collection: '上海博物馆',
     desc: '钧窑以铜红釉著称，窑变出玫瑰紫色，红中泛紫，如晚霞流光。此碗釉色绚丽，器型饱满，为金代钧瓷代表。',
-    thumb: '/assets/image_2_gwdq1f.svg',
-    images: ['/assets/image_2_gwdq1f.svg'],
+    thumb: './assets/image_2_gwdq1f.svg',
+    images: ['./assets/image_2_gwdq1f.svg'],
     emotionalHook: '它入窑时只是一抹平凡的釉色，却在烈火中蜕变成玫瑰紫的霞光，这是窑火与命运的偶然邂逅。',
     quiz: {
       question: '钧窑玫瑰紫釉的呈色原理主要依赖哪种金属元素？',
@@ -87,7 +87,7 @@ export const ARTIFACTS = [
     annotations: [
       { x: 0.5, y: 0.48, text: '铜红窑变，玫瑰紫如晚霞' }
     ],
-    angleImages: ['/assets/image_2_gwdq1f.svg']
+    angleImages: ['./assets/image_2_gwdq1f.svg']
   },
   {
     id: 'ding-meiping',
@@ -98,8 +98,8 @@ export const ARTIFACTS = [
     size: '高 36cm · 腹径 18cm',
     collection: '故宫博物院',
     desc: '定窑以白瓷闻名，胎质洁白细腻。此梅瓶刻花线条流畅，釉色牙白温润，肩部丰满，腹部收束，为北宋定窑精品。',
-    thumb: '/assets/image_3_ikqg6j.svg',
-    images: ['/assets/image_3_ikqg6j.svg'],
+    thumb: './assets/image_3_ikqg6j.svg',
+    images: ['./assets/image_3_ikqg6j.svg'],
     emotionalHook: '北宋冬日，一枝梅花斜插瓶口，白釉映雪，刻花隐现，它是文人书房里最安静的一道风景。',
     quiz: {
       question: '定窑以哪种装饰工艺最为著名？',
@@ -110,7 +110,7 @@ export const ARTIFACTS = [
     annotations: [
       { x: 0.45, y: 0.5, text: '白釉温润，刻花线条流畅' }
     ],
-    angleImages: ['/assets/image_3_ikqg6j.svg']
+    angleImages: ['./assets/image_3_ikqg6j.svg']
   },
   {
     id: 'jingdezhen-qinghua',
@@ -121,8 +121,8 @@ export const ARTIFACTS = [
     size: '高 35cm · 口径 8cm',
     collection: '南京博物院',
     desc: '景德镇青花以钴料绘纹，呈色明丽。此瓶缠枝莲纹笔触细腻，构图繁而不乱，青料发色沉稳，为明代官窑佳作。',
-    thumb: '/assets/image_4_xujb4z.svg',
-    images: ['/assets/image_4_xujb4z.svg'],
+    thumb: './assets/image_4_xujb4z.svg',
+    images: ['./assets/image_4_xujb4z.svg'],
     emotionalHook: '景德镇的画师以钴料为墨，在素白的胎体上描绘缠枝莲，一窑火烧出的是大明王朝的雍容气象。',
     quiz: {
       question: '景德镇青花瓷的蓝色呈色料是什么？',
@@ -140,8 +140,8 @@ export const ARTIFACTS = [
     size: '高 28cm · 口径 10cm',
     collection: '浙江省博物馆',
     desc: '龙泉窑青釉以梅子青、粉青为上。此贯耳瓶釉色苍翠欲滴，如冰似玉，造型仿古，为南宋龙泉窑巅峰之作。',
-    thumb: '/assets/image_5_1wjzgr.svg',
-    images: ['/assets/image_5_1wjzgr.svg'],
+    thumb: './assets/image_5_1wjzgr.svg',
+    images: ['./assets/image_5_1wjzgr.svg'],
     emotionalHook: '南宋的梅雨季节，龙泉山间的窑火日夜不熄，梅子青的釉色如同山间初熟的青梅，凝着一整个江南的湿润与清亮。',
     quiz: {
       question: '龙泉窑最负盛名的两种釉色是？',
@@ -152,7 +152,7 @@ export const ARTIFACTS = [
     annotations: [
       { x: 0.4, y: 0.45, text: '梅子青釉，苍翠欲滴如冰似玉' }
     ],
-    angleImages: ['/assets/image_5_1wjzgr.svg']
+    angleImages: ['./assets/image_5_1wjzgr.svg']
   },
   {
     id: 'yaozhou-bowl',
@@ -163,8 +163,8 @@ export const ARTIFACTS = [
     size: '高 7cm · 口径 18cm',
     collection: '陕西历史博物馆',
     desc: '耀州窑刻花技艺冠绝一时，刀锋犀利，纹饰层次分明。此碗内壁刻折枝花卉，釉色青黄，为北方青瓷代表。',
-    thumb: '/assets/image_6_1y94pe.svg',
-    images: ['/assets/image_6_1y94pe.svg'],
+    thumb: './assets/image_6_1y94pe.svg',
+    images: ['./assets/image_6_1y94pe.svg'],
     emotionalHook: '黄土高原的风沙里，耀州匠人一刀深、一刀浅，在泥胎上刻出半刀泥的花卉，那是北方人的利落与豪情。',
     quiz: {
       question: '耀州窑刻花工艺的技法名称是？',
@@ -182,8 +182,8 @@ export const ARTIFACTS = [
     size: '高 32cm',
     collection: '福建博物院',
     desc: '德化白瓷胎釉纯白，如凝脂冻玉，世称"中国白"。此观音立像衣纹流畅，神态慈悲，为何朝宗一脉代表之作。',
-    thumb: '/assets/image_7_9vemx1.svg',
-    images: ['/assets/image_7_9vemx1.svg'],
+    thumb: './assets/image_7_9vemx1.svg',
+    images: ['./assets/image_7_9vemx1.svg'],
     emotionalHook: '德化的匠人用手中的泥与火，将慈悲凝固成瓷，象牙白的观音低眉垂目，仿佛能听见四百年前的祈福声。',
     quiz: {
       question: '德化白瓷被欧洲人称为？',
@@ -194,7 +194,7 @@ export const ARTIFACTS = [
     annotations: [
       { x: 0.5, y: 0.35, text: '象牙白釉，如凝脂冻玉' }
     ],
-    angleImages: ['/assets/image_7_9vemx1.svg']
+    angleImages: ['./assets/image_7_9vemx1.svg']
   },
   {
     id: 'cizhou-meiping',
@@ -205,8 +205,8 @@ export const ARTIFACTS = [
     size: '高 38cm · 腹径 20cm',
     collection: '磁州窑博物馆',
     desc: '磁州窑以白地黑花装饰最具特色，笔意豪放。此梅瓶绘花卉禽鸟，构图疏朗，黑白对比强烈，富民间意趣。',
-    thumb: '/assets/image_8_rbw0gw.svg',
-    images: ['/assets/image_8_rbw0gw.svg'],
+    thumb: './assets/image_8_rbw0gw.svg',
+    images: ['./assets/image_8_rbw0gw.svg'],
     emotionalHook: '磁州窑的匠人不是宫廷画师，他们用笔恣意挥洒，白地黑花之间，是北方民间最质朴的生命力与烟火气。',
     quiz: {
       question: '磁州窑最具特色的装饰工艺是什么？',
@@ -225,8 +225,8 @@ export const ARTIFACTS = [
     size: '高 3cm · 口径 18cm',
     collection: '大英博物馆',
     desc: '此盘釉色天青纯正，开片细如蟹爪，口沿微侈，圈足矮小，底有支钉痕三枚，为传世汝窑盘类典型器。',
-    thumb: '/assets/image_13_xysvgv.svg',
-    images: ['/assets/image_13_xysvgv.svg'],
+    thumb: './assets/image_13_xysvgv.svg',
+    images: ['./assets/image_13_xysvgv.svg'],
     emotionalHook: '它静静躺在大英博物馆的展柜里，来自北宋的天青色穿越了时空与海洋，仍在诉说着故国的风雅。',
     quiz: {
       question: '这件汝窑天青釉盘现藏于？',
@@ -244,8 +244,8 @@ export const ARTIFACTS = [
     size: '高 12cm · 口径 16cm',
     collection: '宝丰汝瓷博物馆',
     desc: '三足尊造型古朴，仿汉铜尊式。釉面天青色润，开片层层如冰裂，三足稳健，为汝窑陈设重器。',
-    thumb: '/assets/image_14_hmktw6.svg',
-    images: ['/assets/image_14_hmktw6.svg'],
+    thumb: './assets/image_14_hmktw6.svg',
+    images: ['./assets/image_14_hmktw6.svg'],
     emotionalHook: '仿汉铜尊的器型，承载着宋人对古雅的追慕，三足稳稳立于案头，像是与千年前的文人隔空对话。',
     quiz: {
       question: '汝窑天青釉三足尊的器型仿自？',
@@ -263,8 +263,8 @@ export const ARTIFACTS = [
     size: '高 6cm · 长 23cm',
     collection: '台北故宫博物院',
     desc: '水仙盆椭圆形，四足，通体施天青釉，釉面温润，无开片者尤为珍贵，为汝窑传世孤品之一。',
-    thumb: '/assets/image_11_poqxmc.svg',
-    images: ['/assets/image_11_poqxmc.svg'],
+    thumb: './assets/image_11_poqxmc.svg',
+    images: ['./assets/image_11_poqxmc.svg'],
     emotionalHook: '宋徽宗案头的水仙盆，养着几株凌波仙子，天青釉面无开片，宛如一汪静水，映出一位帝王的风雅与落寞。',
     quiz: {
       question: '汝窑水仙盆无开片的品种为何尤为珍贵？',
@@ -275,7 +275,7 @@ export const ARTIFACTS = [
     annotations: [
       { x: 0.5, y: 0.5, text: '无开片，釉面完美如镜' }
     ],
-    angleImages: ['/assets/image_11_poqxmc.svg']
+    angleImages: ['./assets/image_11_poqxmc.svg']
   }
 ];
 
@@ -308,12 +308,12 @@ export const KILN_DATA = {
     name: '汝窑 Ru Ware',
     location: '河南宝丰',
     heritage: '国家级非遗',
-    hero: '/assets/image_10_yi19x4.jpg',
+    hero: './assets/image_10_yi19x4.jpg',
     repWorks: [
-      { name: '天青釉洗', img: '/assets/image_11_poqxmc.svg', artifactId: 'ru-wash' },
-      { name: '天青釉碗', img: '/assets/image_12_w07uxz.svg', artifactId: 'ru-bowl' },
-      { name: '天青釉盘', img: '/assets/image_13_xysvgv.svg', artifactId: 'ru-plate' },
-      { name: '天青釉尊', img: '/assets/image_14_hmktw6.svg', artifactId: 'ru-zun' }
+      { name: '天青釉洗', img: './assets/image_11_poqxmc.svg', artifactId: 'ru-wash' },
+      { name: '天青釉碗', img: './assets/image_12_w07uxz.svg', artifactId: 'ru-bowl' },
+      { name: '天青釉盘', img: './assets/image_13_xysvgv.svg', artifactId: 'ru-plate' },
+      { name: '天青釉尊', img: './assets/image_14_hmktw6.svg', artifactId: 'ru-zun' }
     ],
     chapters: [
       { num: '壹', title: '历史渊源', body: '汝窑为北宋宫廷御窑，位列宋代五大名窑之首。其窑址位于今河南省宝丰县清凉寺一带，专供皇室使用。汝瓷烧制始于北宋初年，鼎盛于哲宗、徽宗时期。相传徽宗曾下旨"雨过天青云破处"，令匠人仿此天青色烧造瓷器，遂成千古绝唱。' },
@@ -329,8 +329,8 @@ export const KILN_DATA = {
     name: '钧窑 Jun Ware',
     location: '河南禹州',
     heritage: '国家级非遗',
-    hero: '/assets/image_10_yi19x4.jpg',
-    repWorks: [{ name: '玫瑰紫釉碗', img: '/assets/image_2_gwdq1f.svg', artifactId: 'jun-bowl' }],
+    hero: './assets/image_10_yi19x4.jpg',
+    repWorks: [{ name: '玫瑰紫釉碗', img: './assets/image_2_gwdq1f.svg', artifactId: 'jun-bowl' }],
     chapters: [
       { num: '壹', title: '历史渊源', body: '钧窑肇始于唐，盛于宋金，窑址在今河南禹州钧台一带。以铜红釉窑变独步天下，被誉为"入窑一色，出窑万彩"，位列宋代五大名窑。' },
       { num: '贰', title: '原料特点', body: '钧瓷胎用禹州本地含铁较高的瓷土，胎质坚致呈灰黑色。釉料含铜、铁、钛等金属元素，以铜红釉为核心，高温下铜元素还原呈红紫，铁元素呈青蓝，交融成斑斓窑变。' },
@@ -345,8 +345,8 @@ export const KILN_DATA = {
     name: '定窑 Ding Ware',
     location: '河北曲阳',
     heritage: '国家级非遗',
-    hero: '/assets/image_10_yi19x4.jpg',
-    repWorks: [{ name: '白釉刻花梅瓶', img: '/assets/image_3_ikqg6j.svg', artifactId: 'ding-meiping' }],
+    hero: './assets/image_10_yi19x4.jpg',
+    repWorks: [{ name: '白釉刻花梅瓶', img: './assets/image_3_ikqg6j.svg', artifactId: 'ding-meiping' }],
     chapters: [
       { num: '壹', title: '历史渊源', body: '定窑窑址在今河北曲阳涧磁村，唐已烧白瓷，宋为五大名窑中唯一以白瓷著称者。北宋曾为宫廷贡瓷，刻花、印花工艺冠绝一时。' },
       { num: '贰', title: '原料特点', body: '定窑用曲阳本地优质高岭土，胎质洁白细腻坚实。釉料含微量钛，烧成呈牙白微黄，温润如玉。白釉为基，兼烧黑釉、紫釉、绿釉。' },
@@ -361,8 +361,8 @@ export const KILN_DATA = {
     name: '景德镇窑 Jingdezhen',
     location: '江西景德镇',
     heritage: '世界级非遗',
-    hero: '/assets/image_10_yi19x4.jpg',
-    repWorks: [{ name: '青花缠枝莲瓶', img: '/assets/image_4_xujb4z.svg', artifactId: 'jingdezhen-qinghua' }],
+    hero: './assets/image_10_yi19x4.jpg',
+    repWorks: [{ name: '青花缠枝莲瓶', img: './assets/image_4_xujb4z.svg', artifactId: 'jingdezhen-qinghua' }],
     chapters: [
       { num: '壹', title: '历史渊源', body: '景德镇自汉代始烧瓷器，宋代称"景德"得名。元设浮梁磁局，明清为皇家御窑，绵延千年，被誉为"瓷都"。' },
       { num: '贰', title: '原料特点', body: '景德镇以高岭土制胎，胎质洁白致密。青花用钴料绘纹，明代用苏麻离青、平等青等，呈色明丽。釉料纯净，白釉莹润，适于釉下彩绘。' },
@@ -377,8 +377,8 @@ export const KILN_DATA = {
     name: '龙泉窑 Longquan Ware',
     location: '浙江龙泉',
     heritage: '世界级非遗',
-    hero: '/assets/image_10_yi19x4.jpg',
-    repWorks: [{ name: '青釉贯耳瓶', img: '/assets/image_5_1wjzgr.svg', artifactId: 'longquan-guangerping' }],
+    hero: './assets/image_10_yi19x4.jpg',
+    repWorks: [{ name: '青釉贯耳瓶', img: './assets/image_5_1wjzgr.svg', artifactId: 'longquan-guangerping' }],
     chapters: [
       { num: '壹', title: '历史渊源', body: '龙泉窑窑址在浙江龙泉，北宋创烧，南宋至元鼎盛，是中国制瓷史上延续最久的窑系之一，青瓷远销海外。' },
       { num: '贰', title: '原料特点', body: '龙泉窑用本地瓷土，胎含铁较高呈灰黑。釉以草木灰配制，含钙，经多次施釉，釉层肥厚。粉青、梅子青为釉色巅峰，如冰似玉。' },
@@ -393,8 +393,8 @@ export const KILN_DATA = {
     name: '耀州窑 Yaozhou Ware',
     location: '陕西铜川',
     heritage: '国家级非遗',
-    hero: '/assets/image_10_yi19x4.jpg',
-    repWorks: [{ name: '青釉刻花碗', img: '/assets/image_6_1y94pe.svg', artifactId: 'yaozhou-bowl' }],
+    hero: './assets/image_10_yi19x4.jpg',
+    repWorks: [{ name: '青釉刻花碗', img: './assets/image_6_1y94pe.svg', artifactId: 'yaozhou-bowl' }],
     chapters: [
       { num: '壹', title: '历史渊源', body: '耀州窑窑址在陕西铜川黄堡镇，始烧于唐，盛于宋金，为北方青瓷代表，宋时曾贡宫廷。' },
       { num: '贰', title: '原料特点', body: '耀州窑用铜川当地瓷土，胎呈灰白，质地细密。釉含铁，在氧化焰中烧成青中偏黄，俗称"姜黄"。釉层较薄，透出刻花纹饰。' },
@@ -409,8 +409,8 @@ export const KILN_DATA = {
     name: '德化窑 Dehua Ware',
     location: '福建德化',
     heritage: '国家级非遗',
-    hero: '/assets/image_10_yi19x4.jpg',
-    repWorks: [{ name: '白釉观音立像', img: '/assets/image_7_9vemx1.svg', artifactId: 'dehua-guanyin' }],
+    hero: './assets/image_10_yi19x4.jpg',
+    repWorks: [{ name: '白釉观音立像', img: './assets/image_7_9vemx1.svg', artifactId: 'dehua-guanyin' }],
     chapters: [
       { num: '壹', title: '历史渊源', body: '德化窑位于福建德化，宋元始烧白瓷，明清达鼎盛，以瓷雕人物闻名，产品远销欧洲，被称为"中国白"（Blanc de Chine）。' },
       { num: '贰', title: '原料特点', body: '德化白瓷用本地优质高岭土，含钾较高，胎釉纯白，烧成透光度佳，如凝脂冻玉。釉色乳白微泛青，温润莹净，世称"猪油白""象牙白"。' },
@@ -425,8 +425,8 @@ export const KILN_DATA = {
     name: '磁州窑 Cizhou Ware',
     location: '河北邯郸',
     heritage: '国家级非遗',
-    hero: '/assets/image_10_yi19x4.jpg',
-    repWorks: [{ name: '白地黑花梅瓶', img: '/assets/image_8_rbw0gw.svg', artifactId: 'cizhou-meiping' }],
+    hero: './assets/image_10_yi19x4.jpg',
+    repWorks: [{ name: '白地黑花梅瓶', img: './assets/image_8_rbw0gw.svg', artifactId: 'cizhou-meiping' }],
     chapters: [
       { num: '壹', title: '历史渊源', body: '磁州窑窑址在河北邯郸观台、彭城一带，宋金元为民窑翘楚，装饰手法丰富，影响深远，被誉为"民间瓷窑的明珠"。' },
       { num: '贰', title: '原料特点', body: '磁州窑胎土较粗，色灰黄。先施一层白色化妆土增白，再以含铁黑料彩绘，黑白对比强烈。化妆土的运用是磁州窑的工艺特色。' },
@@ -441,7 +441,7 @@ export const KILN_DATA = {
     name: '建窑 Jian Ware',
     location: '福建南平',
     heritage: '国家级非遗',
-    hero: '/assets/image_10_yi19x4.jpg',
+    hero: './assets/image_10_yi19x4.jpg',
     repWorks: [],
     chapters: [
       { num: '壹', title: '历史渊源', body: '建窑窑址在福建南平建阳水吉镇，宋代以黑釉茶盏闻名，因斗茶之风盛行而声名鹊起，足底常刻"供御""进琖"。' },
@@ -457,7 +457,7 @@ export const KILN_DATA = {
     name: '唐三彩 Tang Sancai',
     location: '河南洛阳',
     heritage: '国家级非遗',
-    hero: '/assets/image_10_yi19x4.jpg',
+    hero: './assets/image_10_yi19x4.jpg',
     repWorks: [],
     chapters: [
       { num: '壹', title: '历史渊源', body: '唐三彩是唐代低温铅釉陶器的总称，窑址以河南洛阳、陕西西安为主，多为冥器，盛烧于盛唐，反映了大唐盛世的开放气象。' },
