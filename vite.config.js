@@ -1,10 +1,13 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
-// 多页应用：三个 HTML 入口，Vite dev 直接访问 / 即首页
-export default defineConfig({
+// GitHub Pages 仓库路径（用于生产构建）
+const GH_PAGES_BASE = '/-qicraft-h5/';
+
+// 多页应用：五个 HTML 入口
+export default defineConfig(({ mode }) => ({
   root: '.',
-  base: './',
+  base: mode === 'production' ? GH_PAGES_BASE : './',
   server: {
     host: true,
     port: 5173,
@@ -23,4 +26,4 @@ export default defineConfig({
       }
     }
   }
-});
+}));
