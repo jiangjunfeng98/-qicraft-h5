@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#F7F4EE">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>窑口DNA — 器韵 QiCraft</title>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+  <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+  <style type="text/tailwindcss">
+    @theme inline {
+      --color-background: var(--qicraft-background);
+      --color-foreground: var(--qicraft-foreground);
+      --color-primary: var(--qicraft-primary);
+      --color-muted: var(--qicraft-muted);
+      --color-border: var(--qicraft-border);
+    }
+    @layer base {
+      body { background: var(--qicraft-background); color: var(--qicraft-foreground); }
+    }
+  </style>
+  <style>
+    /* DNA 测试页专用样式 */
+    .dna-progress-track {
+      width: 100%;
+      height: 4px;
+      background: var(--qicraft-divider);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .dna-progress-fill {
+      height: 100%;
+      background: var(--qicraft-primary);
+      transition: width 0.3s ease;
+    }
+    .dna-option {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      border-radius: 12px;
+      border: 1px solid var(--qicraft-border);
+      background: var(--qicraft-surface);
+      color: var(--qicraft-foreground);
+      font-size: 0.9375rem;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .dna-option:hover, .dna-option:active {
+      border-color: var(--qicraft-primary);
+      background: var(--qicraft-primary-light);
+    }
+    .dna-option.selected {
+      border-color: var(--qicraft-primary);
+      background: var(--qicraft-primary-light);
+    }
+    .dna-option-index {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--qicraft-elevated);
+      color: var(--qicraft-muted);
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .dna-option.selected .dna-option-index {
+      background: var(--qicraft-primary);
+      color: var(--qicraft-surface);
+    }
+    .dna-nav-btn {
+      padding: 0.625rem 1.25rem;
+      border-radius: 10px;
+      border: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .dna-nav-btn--prev {
+      background: var(--qicraft-elevated);
+      color: var(--qicraft-muted);
+      border: 1px solid var(--qicraft-border);
+    }
+    .dna-nav-btn--prev:hover { color: var(--qicraft-foreground); }
+    .dna-nav-btn--next {
+      background: var(--qicraft-primary);
+      color: var(--qicraft-surface);
+    }
+    .dna-nav-btn--next:hover { background: var(--qicraft-primary-hover); }
+    .dna-nav-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .dna-result-name {
+      font-family: var(--qicraft-font-display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--qicraft-primary);
+      line-height: 1.2;
+      letter-spacing: 0.04em;
+    }
+    .dna-result-artifact-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--qicraft-divider);
+    }
+    .dna-cta {
+      width: 100%;
+      padding: 0.875rem;
+      border-radius: 12px;
+      border: none;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .dna-cta--primary {
+      background: var(--qicraft-primary);
+      color: var(--qicraft-surface);
+    }
+    .dna-cta--primary:hover { background: var(--qicraft-primary-hover); }
+    .dna-cta--secondary {
+      background: var(--qicraft-elevated);
+      color: var(--qicraft-foreground);
+      border: 1px solid var(--qicraft-border);
+    }
+    .dna-cta--secondary:hover { border-color: var(--qicraft-subtle); }
+  </style>
+  <script type="module" crossorigin src="/-qicraft-h5/assets/dna-Be69Neih.js"></script>
+  <link rel="modulepreload" crossorigin href="/-qicraft-h5/assets/navigation-biFXB6Du.js">
+  <link rel="stylesheet" crossorigin href="/-qicraft-h5/assets/app-shell-Bdycfxoa.css">
+</head>
+<body data-page="dna">
+
+<div class="app-stage">
+  <div class="app-device">
+
+    <!-- Notch -->
+    <div class="app-notch"></div>
+
+    <!-- Status Bar -->
+    <div class="app-statusbar">
+      <span class="app-statusbar-time">9:41</span>
+      <div class="app-statusbar-icons">
+        <i data-lucide="signal"></i>
+        <i data-lucide="wifi"></i>
+        <i data-lucide="battery-full"></i>
+      </div>
+    </div>
+
+    <!-- App Content -->
+    <div class="app-content">
+      <main class="qicraft-shell">
+
+        <!-- ===== Header ===== -->
+        <header class="flex items-center justify-between px-4 pt-5 pb-3">
+          <a href="index.html" class="inline-flex items-center justify-center" style="width: 36px; height: 36px; border-radius: var(--qicraft-radius-md);" aria-label="返回">
+            <i data-lucide="chevron-left" class="w-5 h-5" style="color: var(--qicraft-foreground);"></i>
+          </a>
+          <h1 class="text-base font-semibold" style="font-family: var(--qicraft-font-display); color: var(--qicraft-foreground); letter-spacing: 0.04em;">窑口DNA</h1>
+          <div style="width: 36px;"></div>
+        </header>
+
+        <!-- ===== Progress Bar ===== -->
+        <div class="px-4 pb-4">
+          <div class="dna-progress-track">
+            <div id="dna-progress" class="dna-progress-fill" style="width: 0%;"></div>
+          </div>
+          <p id="dna-step-text" class="text-xs mt-2" style="color: var(--qicraft-muted); text-align: center;">第 1 题 / 共 4 题</p>
+        </div>
+
+        <!-- ===== Question Area ===== -->
+        <section id="dna-question-area" class="px-4 pb-4 flex-1">
+          <h2 id="dna-question" class="text-lg font-semibold leading-relaxed mb-4" style="font-family: var(--qicraft-font-display); color: var(--qicraft-foreground);"></h2>
+          <div id="dna-options" class="flex flex-col gap-2.5"></div>
+        </section>
+
+        <!-- ===== Result Area (hidden initially) ===== -->
+        <section id="dna-result-area" class="px-4 pb-8 hidden">
+          <div class="text-center pt-4 pb-6">
+            <p class="text-sm mb-2" style="color: var(--qicraft-muted);">你的窑口DNA是</p>
+            <h2 id="dna-result-name" class="dna-result-name"></h2>
+            <p id="dna-result-desc" class="text-sm leading-relaxed mt-3 mx-auto" style="color: var(--qicraft-muted); max-width: 280px;"></p>
+          </div>
+
+          <div class="flex flex-col items-center gap-3 pb-6">
+            <img id="dna-result-img" src="" alt="" class="dna-result-artifact-img">
+            <p id="dna-result-artifact-name" class="text-sm font-medium" style="color: var(--qicraft-foreground); font-family: var(--qicraft-font-display);"></p>
+          </div>
+
+          <div class="flex flex-col gap-2.5">
+            <button id="dna-btn-explore" class="dna-cta dna-cta--primary">探索技艺</button>
+            <button id="dna-btn-retry" class="dna-cta dna-cta--secondary">再测一次</button>
+          </div>
+        </section>
+
+        <!-- ===== Bottom Navigation ===== -->
+        <div id="dna-nav" class="px-4 pb-6 pt-2 flex items-center justify-between">
+          <button id="dna-prev" class="dna-nav-btn dna-nav-btn--prev" disabled>上一题</button>
+          <button id="dna-next" class="dna-nav-btn dna-nav-btn--next" disabled>下一题</button>
+        </div>
+
+      </main>
+    </div>
+
+    <!-- ===== Bottom Tab Bar ===== -->
+    <nav class="app-tabbar">
+      <a class="app-tab" href="index.html" data-tab="home">
+        <i data-lucide="layout-grid" class="app-tab-icon"></i>
+        <span class="app-tab-label">珍宝馆</span>
+      </a>
+      <a class="app-tab" href="kiln-chronicle.html?kiln=汝瓷" data-tab="kiln">
+        <i data-lucide="flame" class="app-tab-icon"></i>
+        <span class="app-tab-label">窑口志</span>
+      </a>
+      <a class="app-tab" href="kiln-dna.html" data-tab="dna">
+        <i data-lucide="flask-conical" class="app-tab-icon"></i>
+        <span class="app-tab-label">窑口DNA</span>
+      </a>
+    </nav>
+
+  </div>
+</div>
+
+<script src="/src/scripts/app-shell.js"></script>
+</body>
+</html>
