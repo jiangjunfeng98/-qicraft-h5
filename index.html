@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#F7F4EE">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>珍宝馆 — 器韵 QiCraft</title>
+
+  <!-- Brand tokens (extracted from design) -->
+  <link rel="stylesheet" href="/src/styles/brand.css">
+  <!-- Responsive & interaction layer -->
+  <link rel="stylesheet" href="/src/styles/responsive.css">
+  <!-- App shell: phone frame + status bar + tab bar -->
+  <link rel="stylesheet" href="/src/styles/app-shell.css">
+
+  <!-- Tailwind via CDN (matches design exactly) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+  <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+  <style type="text/tailwindcss">
+    @theme inline {
+      --color-background: var(--qicraft-background);
+      --color-foreground: var(--qicraft-foreground);
+      --color-primary: var(--qicraft-primary);
+      --color-muted: var(--qicraft-muted);
+      --color-border: var(--qicraft-border);
+    }
+    @layer base {
+      body { background: var(--qicraft-background); color: var(--qicraft-foreground); }
+    }
+  </style>
+</head>
+<body data-page="home">
+
+<div class="app-stage">
+  <div class="app-device">
+
+    <!-- Notch -->
+    <div class="app-notch"></div>
+
+    <!-- Status Bar -->
+    <div class="app-statusbar">
+      <span class="app-statusbar-time">9:41</span>
+      <div class="app-statusbar-icons">
+        <i data-lucide="signal"></i>
+        <i data-lucide="wifi"></i>
+        <i data-lucide="battery-full"></i>
+      </div>
+    </div>
+
+    <!-- App Content -->
+    <div class="app-content">
+      <main class="qicraft-shell">
+
+        <!-- ===== Brand Header ===== -->
+        <header class="flex items-center justify-between px-4 pt-5 pb-4">
+          <div class="flex items-center gap-3">
+            <div class="flex items-center justify-center w-10 h-10 rounded-lg" style="background-color: var(--qicraft-primary);">
+              <span class="text-sm font-bold" style="color: var(--qicraft-elevated); font-family: var(--qicraft-font-display);">器</span>
+            </div>
+            <div>
+              <h1 class="text-xl font-bold leading-tight" style="font-family: var(--qicraft-font-display); color: var(--qicraft-foreground); text-wrap: balance; word-break: keep-all;">器韵</h1>
+            </div>
+          </div>
+          <div class="w-9 h-9"></div>
+        </header>
+
+        <!-- ===== Brand Subtitle ===== -->
+        <p class="px-4 pb-5 text-sm leading-relaxed" style="color: var(--qicraft-muted);">以器物为引，寻窑口之根</p>
+
+        <!-- ===== Kiln Tab Navigation ===== -->
+        <nav class="px-4 pb-4" aria-label="窑口分类">
+          <div id="kiln-tabs" class="flex gap-2 overflow-x-auto pb-2 no-scrollbar" style="-webkit-overflow-scrolling: touch;">
+            <!-- tabs rendered by JS -->
+          </div>
+        </nav>
+
+        <!-- ===== Divider ===== -->
+        <div class="mx-4" style="height: 1px; background-color: var(--qicraft-divider);"></div>
+
+        <!-- ===== DNA Test Banner ===== -->
+        <section class="px-4 pt-4 pb-2">
+          <a href="kiln-dna.html" class="block rounded-xl overflow-hidden relative" style="background: linear-gradient(135deg, #9B2C2C 0%, #2C4F6E 100%); border: none;">
+            <div class="p-4 flex items-center justify-between">
+              <div>
+                <p class="text-sm font-semibold" style="color: #FFFFFF; font-family: var(--qicraft-font-display);">测测你的窑口DNA</p>
+                <p class="text-xs mt-1" style="color: rgba(255,255,255,0.8);">4道题，找到最契合你性格的千年窑口</p>
+              </div>
+              <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background: rgba(255,255,255,0.2);">
+                <i data-lucide="chevron-right" style="color: #FFFFFF;"></i>
+              </div>
+            </div>
+          </a>
+        </section>
+
+        <!-- ===== Daily Pick Section ===== -->
+        <section class="px-4 pt-5 pb-2">
+          <div class="flex items-center gap-2 pb-3">
+            <i data-lucide="sparkles" class="w-4 h-4" style="color: var(--qicraft-state-warning);"></i>
+            <h2 class="text-base font-semibold" style="font-family: var(--qicraft-font-display); color: var(--qicraft-foreground);">每日一瓷</h2>
+          </div>
+          <a href="#" id="daily-pick" class="block rounded-lg overflow-hidden" style="border: 1px solid var(--qicraft-border); background-color: var(--qicraft-surface);">
+            <div class="relative aspect-[16/10] overflow-hidden" style="background-color: var(--qicraft-elevated);">
+              <img src="/assets/image_9_ho5s6f.svg" alt="每日一瓷" class="w-full h-full object-cover" loading="eager">
+              <div class="absolute bottom-0 left-0 right-0 p-3" style="background: linear-gradient(to top, rgba(44,36,25,0.7), transparent);">
+                <p data-daily-title class="text-sm font-semibold truncate" style="color: var(--qicraft-surface); font-family: var(--qicraft-font-display);">汝窑天青釉洗</p>
+                <p data-daily-sub class="text-xs mt-0.5 truncate" style="color: rgba(255,255,255,0.8);">北宋 · 汝瓷</p>
+              </div>
+            </div>
+            <div class="p-3">
+              <p class="text-xs leading-relaxed" style="color: var(--qicraft-muted);">釉色天青，温润如玉，开片细密自然，为传世汝窑精品。</p>
+            </div>
+          </a>
+        </section>
+
+        <!-- ===== Divider ===== -->
+        <div class="mx-4 mt-2 mb-1" style="height: 1px; background-color: var(--qicraft-divider);"></div>
+
+        <!-- ===== Artifact Grid Section ===== -->
+        <section class="px-4 pt-4 pb-8">
+          <div class="flex items-center justify-between pb-3">
+            <h2 class="text-base font-semibold" style="font-family: var(--qicraft-font-display); color: var(--qicraft-foreground);">器物图鉴</h2>
+            <span id="artifact-count" class="text-xs" style="color: var(--qicraft-muted);">共 0 件</span>
+          </div>
+
+          <div id="artifact-grid" class="artifact-grid">
+            <!-- cards rendered by JS -->
+          </div>
+
+          <!-- Load More -->
+          <div id="load-more-wrap" class="flex justify-center mt-6 hidden">
+            <button id="load-more-btn" class="load-more-btn inline-flex items-center justify-center px-6 h-10 rounded-lg text-sm font-medium whitespace-nowrap" style="background-color: var(--qicraft-primary); color: var(--qicraft-surface);">
+              查看更多
+            </button>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+    <!-- ===== Bottom Tab Bar ===== -->
+    <nav class="app-tabbar">
+      <a class="app-tab" href="index.html" data-tab="home">
+        <i data-lucide="layout-grid" class="app-tab-icon"></i>
+        <span class="app-tab-label">珍宝馆</span>
+      </a>
+      <a class="app-tab" href="kiln-chronicle.html?kiln=汝瓷" data-tab="kiln">
+        <i data-lucide="flame" class="app-tab-icon"></i>
+        <span class="app-tab-label">窑口志</span>
+      </a>
+      <a class="app-tab" href="kiln-dna.html" data-tab="dna">
+        <i data-lucide="flask-conical" class="app-tab-icon"></i>
+        <span class="app-tab-label">窑口DNA</span>
+      </a>
+    </nav>
+
+  </div>
+</div>
+
+<!-- App shell (classic, runs first) -->
+<script src="/src/scripts/app-shell.js"></script>
+<!-- Page logic (module, deferred) -->
+<script type="module" src="/src/scripts/treasure-hall.js"></script>
+</body>
+</html>

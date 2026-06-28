@@ -1,0 +1,480 @@
+/* ==========================================
+   器韵 QiCraft — Responsive & Interaction Layer
+   多端适配 · 安全区 · 触控目标 · 组件状态
+   ========================================== */
+
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background-color: var(--qicraft-background);
+  color: var(--qicraft-foreground);
+  font-family: var(--qicraft-font-body);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* ---- Shell container: mobile-first, expands on larger screens ----
+   只控制宽度与居中；横向内边距由各页面 section 的 px-4 承担 */
+.qicraft-shell {
+  max-width: 32rem;            /* 512px — H5 移动端基准 */
+  margin: 0 auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+@media (min-width: 768px) {
+  .qicraft-shell { max-width: 42rem; }
+}
+@media (min-width: 1024px) {
+  .qicraft-shell { max-width: 56rem; }
+}
+@media (min-width: 1280px) {
+  .qicraft-shell { max-width: 64rem; }
+}
+/* 顶栏等只需居中约束、不需要满高度的容器 */
+.qicraft-shell--bar { min-height: 0 !important; }
+
+/* ---- Scrollbar hide utility ---- */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ---- Icon mask helper (for any [data-icon] usage) ---- */
+[data-icon] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  background-color: currentColor;
+}
+
+/* ---- Touch target guarantee (≥44px) for interactive chips/buttons ---- */
+.qicraft-tap { min-height: 44px; min-width: 44px; }
+
+/* ============================================================
+   珍宝馆 · 首页
+   ============================================================ */
+/* 器物网格：移动 2 列 → 平板 3 列 → 桌面 4 列 */
+.artifact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+@media (min-width: 768px) {
+  .artifact-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+}
+@media (min-width: 1024px) {
+  .artifact-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* 卡片交互 */
+.artifact-card {
+  display: block;
+  border-radius: var(--qicraft-radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--qicraft-border);
+  background-color: var(--qicraft-surface);
+  transition: transform 160ms cubic-bezier(.2,.8,.2,1), box-shadow 160ms cubic-bezier(.2,.8,.2,1);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+.artifact-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(44, 36, 25, 0.08);
+}
+.artifact-card:active { transform: translateY(0); box-shadow: none; }
+.artifact-card:focus-visible {
+  outline: 2px solid var(--qicraft-primary);
+  outline-offset: 2px;
+}
+
+/* 窑口 Tab */
+.kiln-tab {
+  transition: background-color 120ms cubic-bezier(.2,.8,.2,1), border-color 120ms cubic-bezier(.2,.8,.2,1), color 120ms cubic-bezier(.2,.8,.2,1);
+}
+.kiln-tab:hover { border-color: var(--qicraft-subtle); background-color: var(--qicraft-elevated); }
+.kiln-tab:focus-visible { outline: 2px solid var(--qicraft-primary); outline-offset: 2px; }
+.kiln-tab[aria-pressed="true"] {
+  background-color: var(--qicraft-primary) !important;
+  color: var(--qicraft-surface) !important;
+  border-color: var(--qicraft-primary) !important;
+  pointer-events: none;
+}
+
+/* 加载更多按钮 */
+.load-more-btn {
+  transition: background-color 120ms cubic-bezier(.2,.8,.2,1), transform 120ms cubic-bezier(.2,.8,.2,1);
+}
+.load-more-btn:hover { background-color: var(--qicraft-primary-hover); }
+.load-more-btn:active { transform: scale(0.98); }
+.load-more-btn:focus-visible { outline: 2px solid var(--qicraft-primary); outline-offset: 2px; }
+
+/* 空状态 */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--qicraft-muted);
+}
+
+/* 卡片淡入动画（筛选 / 加载时） */
+@keyframes qicraft-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.artifact-card.is-entering {
+  animation: qicraft-fade-in 240ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+/* ============================================================
+   器物详情 · 灯箱
+   ============================================================ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(44, 36, 25, 0.6);
+  backdrop-filter: blur(2px);
+}
+/* 桌面端：信息卡片宽度收敛，居中阅读 */
+@media (min-width: 1024px) {
+  .lightbox-main {
+    max-width: 40rem;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .lightbox-info-card { max-width: 40rem; margin-left: auto; margin-right: auto; }
+}
+
+/* 图片轮播 */
+.carousel {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.carousel-track {
+  display: flex;
+  width: 100%;
+  transition: transform 280ms cubic-bezier(.2,.8,.2,1);
+  will-change: transform;
+}
+.carousel-track.no-transition { transition: none; }
+.carousel-slide {
+  flex: 0 0 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+.carousel-slide img {
+  max-height: 100%;
+  max-width: 100%;
+  border-radius: var(--qicraft-radius-md);
+  pointer-events: none;
+}
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: var(--qicraft-radius-full);
+  border: 1px solid var(--qicraft-border);
+  background-color: rgba(255, 253, 249, 0.92);
+  color: var(--qicraft-foreground);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 120ms cubic-bezier(.2,.8,.2,1), transform 120ms cubic-bezier(.2,.8,.2,1);
+  z-index: 2;
+}
+.carousel-arrow:hover { background-color: var(--qicraft-surface); }
+.carousel-arrow:active { transform: translateY(-50%) scale(0.94); }
+.carousel-arrow:focus-visible { outline: 2px solid var(--qicraft-primary); outline-offset: 2px; }
+.carousel-arrow[hidden] { display: none; }
+.carousel-arrow--prev { left: 8px; }
+.carousel-arrow--next { right: 8px; }
+.carousel-counter {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  border-radius: var(--qicraft-radius-full);
+  background-color: rgba(44, 36, 25, 0.5);
+  backdrop-filter: blur(4px);
+  color: var(--qicraft-background);
+  font-size: 11px;
+  font-family: var(--qicraft-font-body);
+  white-space: nowrap;
+  z-index: 2;
+}
+
+/* 详情页按钮 */
+.detail-close, .detail-cta {
+  transition: background-color 150ms cubic-bezier(.2,.8,.2,1), transform 150ms cubic-bezier(.2,.8,.2,1);
+}
+.detail-close:hover { background-color: var(--qicraft-divider); }
+.detail-cta:hover { background-color: var(--qicraft-primary-hover) !important; }
+.detail-cta:active { transform: scale(0.98); }
+.detail-close:focus-visible, .detail-cta:focus-visible {
+  outline: 2px solid var(--qicraft-primary);
+  outline-offset: 2px;
+}
+
+/* 器物导航（上一件 / 下一件） */
+.artifact-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 14px;
+  border-radius: var(--qicraft-radius-full);
+  border: 1px solid var(--qicraft-border);
+  background-color: var(--qicraft-surface);
+  color: var(--qicraft-foreground);
+  font-size: var(--qicraft-text-xs);
+  font-family: var(--qicraft-font-body);
+  cursor: pointer;
+  transition: background-color 120ms cubic-bezier(.2,.8,.2,1), border-color 120ms cubic-bezier(.2,.8,.2,1);
+}
+.artifact-nav-btn:hover { border-color: var(--qicraft-subtle); background-color: var(--qicraft-elevated); }
+.artifact-nav-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.artifact-nav-btn:focus-visible { outline: 2px solid var(--qicraft-primary); outline-offset: 2px; }
+
+/* ============================================================
+   窑口志
+   ============================================================ */
+.kiln-hero {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+.kiln-hero img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.kiln-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--qicraft-foreground) 0%, transparent 60%);
+  opacity: 0.4;
+}
+.kiln-card {
+  border: 1px solid var(--qicraft-border);
+  border-radius: var(--qicraft-radius-lg);
+  background-color: var(--qicraft-surface);
+  padding: 20px;
+  transition: box-shadow 160ms cubic-bezier(.2,.8,.2,1), transform 160ms cubic-bezier(.2,.8,.2,1);
+}
+.kiln-card:hover { box-shadow: var(--qicraft-shadow-md); }
+.related-card {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--qicraft-border);
+  border-radius: var(--qicraft-radius-md);
+  background-color: var(--qicraft-surface);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 160ms cubic-bezier(.2,.8,.2,1), box-shadow 160ms cubic-bezier(.2,.8,.2,1);
+  cursor: pointer;
+}
+.related-card:hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(44, 36, 25, 0.08); }
+.related-card:focus-visible { outline: 2px solid var(--qicraft-primary); outline-offset: 2px; }
+
+/* 代表性器物圆形缩略图 */
+.rep-thumb {
+  cursor: pointer;
+  transition: transform 140ms cubic-bezier(.2,.8,.2,1);
+}
+.rep-thumb:hover { transform: scale(1.05); }
+.rep-thumb:focus-visible { outline: 2px solid var(--qicraft-primary); outline-offset: 2px; border-radius: var(--qicraft-radius-full); }
+
+/* ============================================================
+   情感化叙事
+   ============================================================ */
+.artifact-card .emotional-hook {
+  font-style: italic;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: var(--qicraft-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ============================================================
+   一瓷一考弹层
+   ============================================================ */
+.quiz-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.quiz-overlay.hidden { display: none; }
+
+.quiz-modal {
+  background: var(--qicraft-surface);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 360px;
+  padding: 1.5rem;
+  animation: quizSlideIn 0.3s ease-out;
+}
+@keyframes quizSlideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.quiz-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.quiz-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--qicraft-primary);
+  color: var(--qicraft-surface);
+}
+
+.quiz-skip {
+  font-size: 0.75rem;
+  color: var(--qicraft-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+}
+.quiz-skip:hover { color: var(--qicraft-foreground); }
+
+.quiz-image {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 1rem 0;
+  background: var(--qicraft-elevated);
+}
+.quiz-image img { width: 100%; height: 100%; object-fit: cover; }
+
+.quiz-question {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--qicraft-foreground);
+  margin-bottom: 1rem;
+  font-family: var(--qicraft-font-display);
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quiz-option {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--qicraft-border);
+  background: var(--qicraft-surface);
+  color: var(--qicraft-foreground);
+  font-size: 0.875rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.quiz-option:hover, .quiz-option:active {
+  border-color: var(--qicraft-primary);
+  background: var(--qicraft-primary-light);
+}
+.quiz-option.correct {
+  border-color: #2E7D32;
+  background: rgba(46,125,50,0.1);
+}
+.quiz-option.wrong {
+  border-color: #C62828;
+  background: rgba(198,40,40,0.1);
+}
+.quiz-option:disabled {
+  cursor: default;
+  opacity: 0.9;
+}
+
+.quiz-result {
+  margin-top: 1rem;
+}
+.quiz-result.hidden { display: none; }
+
+.quiz-result-text {
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.quiz-result-text.correct { color: #2E7D32; }
+.quiz-result-text.wrong { color: #C62828; }
+
+.quiz-explanation {
+  font-size: 0.875rem;
+  color: var(--qicraft-muted);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.quiz-continue {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: none;
+  background: var(--qicraft-primary);
+  color: var(--qicraft-surface);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.quiz-continue:hover { background: var(--qicraft-primary-hover); }
+
+/* DNA Banner */
+.dna-banner {
+  background: linear-gradient(135deg, #9B2C2C 0%, #2C4F6E 100%);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* ============================================================
+   Reduced motion
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

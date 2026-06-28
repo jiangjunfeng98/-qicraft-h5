@@ -1,0 +1,47 @@
+{
+  "root": {
+    "nodeId": "gen-project-shell",
+    "kind": "project-shell",
+    "pageIds": ["page-treasure-hall", "page-artifact-detail", "page-kiln-chronicle"],
+    "output": "partials/project-shell.html",
+    "sharedRegions": ["background-color", "base-font-family", "color-scheme", "container-max-width"],
+    "privateRegions": [],
+    "mutableSlots": ["activePageTitle", "showBackButton"],
+    "status": "planned",
+    "children": [
+      {
+        "nodeId": "gen-page-treasure-hall",
+        "kind": "page-leaf",
+        "pageIds": ["page-treasure-hall"],
+        "output": "pages/treasure-hall.html",
+        "sharedRegions": [],
+        "privateRegions": ["品牌区", "窑口 tab 导航", "器物 Grid", "每日一瓷"],
+        "mutableSlots": [],
+        "status": "planned",
+        "children": []
+      },
+      {
+        "nodeId": "gen-page-artifact-detail",
+        "kind": "page-leaf",
+        "pageIds": ["page-artifact-detail"],
+        "output": "pages/artifact-detail.html",
+        "sharedRegions": [],
+        "privateRegions": ["大图轮播", "器物信息", "寻根按钮", "关闭按钮"],
+        "mutableSlots": ["showBackButton"],
+        "status": "planned",
+        "children": []
+      },
+      {
+        "nodeId": "gen-page-kiln-chronicle",
+        "kind": "page-leaf",
+        "pageIds": ["page-kiln-chronicle"],
+        "output": "pages/kiln-chronicle.html",
+        "sharedRegions": [],
+        "privateRegions": ["窑口标题", "代表性器物缩略图", "六大板块内容", "关联器物"],
+        "mutableSlots": ["showBackButton"],
+        "status": "planned",
+        "children": []
+      }
+    ]
+  }
+}

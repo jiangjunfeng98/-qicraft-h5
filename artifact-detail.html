@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#2C2419">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>器物详情 — 器韵 QiCraft</title>
+
+  <link rel="stylesheet" href="/src/styles/brand.css">
+  <link rel="stylesheet" href="/src/styles/responsive.css">
+  <link rel="stylesheet" href="/src/styles/app-shell.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+  <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+  <style type="text/tailwindcss">
+    @theme inline {
+      --color-background: var(--qicraft-background);
+      --color-foreground: var(--qicraft-foreground);
+      --color-primary: var(--qicraft-primary);
+      --color-muted: var(--qicraft-muted);
+      --color-border: var(--qicraft-border);
+    }
+    @layer base {
+      body { background: var(--qicraft-background); color: var(--qicraft-foreground); }
+    }
+  </style>
+</head>
+<body data-page="detail">
+
+<div class="app-stage">
+  <div class="app-device">
+
+    <!-- Notch -->
+    <div class="app-notch"></div>
+
+    <!-- Status Bar (stays visible above the lightbox) -->
+    <div class="app-statusbar">
+      <span class="app-statusbar-time">9:41</span>
+      <div class="app-statusbar-icons">
+        <i data-lucide="signal"></i>
+        <i data-lucide="wifi"></i>
+        <i data-lucide="battery-full"></i>
+      </div>
+    </div>
+
+    <!-- App Content: the lightbox covers this area -->
+    <div class="app-content" style="overflow: hidden;">
+
+      <!-- ===== Lightbox Overlay ===== -->
+      <div class="lightbox">
+
+        <!-- Top Bar -->
+        <div class="flex-shrink-0 flex items-center justify-between px-4 pt-3 pb-2">
+          <div class="w-10"></div>
+          <span class="text-xs" style="color: var(--qicraft-surface); opacity: 0.85; font-family: var(--qicraft-font-body);">器物详情</span>
+          <button id="detail-close" class="detail-close inline-flex items-center justify-center rounded-lg border" style="width: 40px; height: 40px; border-color: var(--qicraft-border); background-color: var(--qicraft-surface);" aria-label="关闭">
+            <i data-lucide="x" style="width: 20px; height: 20px; color: var(--qicraft-foreground);"></i>
+          </button>
+        </div>
+
+        <!-- Lightbox Content -->
+        <main class="lightbox-main flex-1 overflow-y-auto flex flex-col">
+
+          <!-- ===== Image Carousel ===== -->
+          <section class="carousel-section flex-shrink-0 flex items-center justify-center px-4">
+            <div id="carousel" class="carousel" style="max-width: 400px; width: 100%; height: 100%;">
+              <div id="carousel-track" class="carousel-track" style="height: 100%;">
+                <!-- slides rendered by JS -->
+              </div>
+              <button id="carousel-prev" class="carousel-arrow carousel-arrow--prev" aria-label="上一张" hidden>
+                <i data-lucide="chevron-left" class="w-4 h-4"></i>
+              </button>
+              <button id="carousel-next" class="carousel-arrow carousel-arrow--next" aria-label="下一张" hidden>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+              </button>
+              <div id="carousel-counter" class="carousel-counter"></div>
+            </div>
+          </section>
+
+          <!-- ===== Artifact Info Card ===== -->
+          <section id="info-card" class="lightbox-info-card flex-1 mx-4 mb-4 mt-4 rounded-lg p-5 flex flex-col gap-4" style="background-color: var(--qicraft-surface); border: var(--qicraft-card-border); box-shadow: var(--qicraft-shadow-elevated);">
+
+            <!-- Title + Kiln Tag Row -->
+            <div class="flex items-start gap-3">
+              <h1 id="artifact-title" class="qicraft-heading-2 flex-1 min-w-0" style="color: var(--qicraft-foreground); text-wrap: balance; word-break: keep-all; overflow-wrap: break-word;">汝窑天青釉洗</h1>
+              <span id="artifact-kiln-tag" class="shrink-0 inline-flex items-center justify-center px-3 py-1 rounded-full whitespace-nowrap" style="background-color: var(--qicraft-state-warning); color: var(--qicraft-surface); font-size: var(--qicraft-text-xs); font-weight: 500; line-height: 1.5;">汝瓷</span>
+            </div>
+
+            <!-- Metadata Grid -->
+            <div class="grid grid-cols-2 gap-x-4 gap-y-3">
+              <div class="flex flex-col gap-0.5">
+                <span class="qicraft-label" style="font-size: 11px;">年代</span>
+                <span id="meta-dynasty" class="qicraft-body-sm" style="color: var(--qicraft-foreground);">北宋</span>
+              </div>
+              <div class="flex flex-col gap-0.5">
+                <span class="qicraft-label" style="font-size: 11px;">材质</span>
+                <span id="meta-material" class="qicraft-body-sm" style="color: var(--qicraft-foreground);">天青釉</span>
+              </div>
+              <div class="col-span-2 flex flex-col gap-0.5">
+                <span class="qicraft-label" style="font-size: 11px;">尺寸</span>
+                <span id="meta-size" class="qicraft-body-sm" style="color: var(--qicraft-foreground);">高 3.5cm &middot; 口径 13cm</span>
+              </div>
+            </div>
+
+            <!-- Divider -->
+            <div style="height: 1px; background-color: var(--qicraft-divider);"></div>
+
+            <!-- Description -->
+            <p id="artifact-desc" class="qicraft-body-sm" style="color: var(--qicraft-muted); line-height: 1.75;">
+              汝窑为宋代五大名窑之首，以天青色釉著称。此洗釉色莹润如玉，开片细密，宛若冰裂，底有细小支钉痕迹，尽显宋人极简美学之精髓。
+            </p>
+
+            <!-- CTA: 寻根 -->
+            <a id="cta-kiln" href="#" class="detail-cta inline-flex items-center justify-center rounded-lg whitespace-nowrap" style="width: 100%; height: 48px; background-color: var(--qicraft-primary); color: var(--qicraft-surface); font-family: var(--qicraft-font-body); font-size: var(--qicraft-text-base); font-weight: 600; letter-spacing: 0.04em; cursor: pointer;">
+              寻根
+            </a>
+          </section>
+
+          <!-- ===== Artifact Navigation ===== -->
+          <div id="swipe-hint" class="flex-shrink-0 flex flex-col items-center gap-3 pb-6 pt-1 px-4">
+            <div class="flex items-center gap-3">
+              <button id="prev-artifact" class="artifact-nav-btn" aria-label="上一件">
+                <i data-lucide="chevron-left" class="w-3.5 h-3.5"></i> 上一件
+              </button>
+              <button id="next-artifact" class="artifact-nav-btn" aria-label="下一件">
+                下一件 <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+            <span class="qicraft-caption" style="color: var(--qicraft-subtle); font-size: 12px;">左右滑动查看前后器物</span>
+          </div>
+
+        </main>
+      </div>
+
+    </div>
+    <!-- No bottom tab bar on detail (full-screen pushed view) -->
+
+  </div>
+</div>
+
+<script src="/src/scripts/app-shell.js"></script>
+<script type="module" src="/src/scripts/artifact-detail.js"></script>
+</body>
+</html>

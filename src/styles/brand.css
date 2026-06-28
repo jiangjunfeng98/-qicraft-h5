@@ -1,0 +1,88 @@
+/* ==========================================
+   器韵 QiCraft — Brand CSS
+   古韵暖色 · 瓷器文化图鉴 H5
+   ========================================== */
+
+/* --- Brand Prefix: qicraft --- */
+:root {
+  /* Color System */
+  --qicraft-background: #F7F4EE;
+  --qicraft-surface: #FFFFFF;
+  --qicraft-elevated: #FFFDF9;
+  --qicraft-foreground: #2C2419;
+  --qicraft-muted: #7A6F60;
+  --qicraft-subtle: #B8A99A;
+  --qicraft-border: #D4CBBF;
+  --qicraft-divider: #EDE8DF;
+
+  /* Primary — 深赤陶 (warm terracotta) */
+  --qicraft-primary: #9B2C2C;
+  --qicraft-primary-hover: #B83A3A;
+  --qicraft-primary-light: rgba(155, 44, 44, 0.08);
+  --qicraft-primary-muted: rgba(155, 44, 44, 0.15);
+
+  /* Semantic Status */
+  --qicraft-state-success: #3D7A5F;
+  --qicraft-state-warning: #B8860B;
+  --qicraft-state-error: #9B2C2C;
+  --qicraft-state-info: #2C4F6E;
+
+  /* Typography System */
+  --qicraft-font-display: 'Noto Serif SC', 'Songti SC', 'SimSun', Georgia, serif;
+  --qicraft-font-body: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --qicraft-font-mono: 'IBM Plex Mono', 'Fira Code', 'Courier New', monospace;
+
+  /* Type Scale */
+  --qicraft-text-xs: 0.75rem;
+  --qicraft-text-sm: 0.875rem;
+  --qicraft-text-base: 1rem;
+  --qicraft-text-lg: 1.125rem;
+  --qicraft-text-xl: 1.25rem;
+  --qicraft-text-2xl: 1.5rem;
+  --qicraft-text-3xl: 1.875rem;
+  --qicraft-text-4xl: 2.25rem;
+
+  /* Spacing */
+  --qicraft-space-xs: 0.25rem;
+  --qicraft-space-sm: 0.5rem;
+  --qicraft-space-md: 1rem;
+  --qicraft-space-lg: 1.5rem;
+  --qicraft-space-xl: 2rem;
+  --qicraft-space-2xl: 3rem;
+
+  /* Radius */
+  --qicraft-radius-sm: 4px;
+  --qicraft-radius-md: 8px;
+  --qicraft-radius-lg: 12px;
+  --qicraft-radius-full: 9999px;
+
+  /* Shadow (static max alpha 0.05) */
+  --qicraft-shadow-sm: 0 1px 2px rgba(44, 36, 25, 0.04);
+  --qicraft-shadow-md: 0 2px 8px rgba(44, 36, 25, 0.05);
+  --qicraft-shadow-lg: 0 8px 24px rgba(44, 36, 25, 0.05);
+  --qicraft-shadow-elevated: 0 12px 40px rgba(44, 36, 25, 0.05);
+
+  /* Surface Depth Model */
+  --qicraft-card-border: 1px solid var(--qicraft-border);
+  --qicraft-surface-shadow: var(--qicraft-shadow-sm);
+}
+
+/* Display Typography Classes */
+.qicraft-display {
+  font-family: var(--qicraft-font-display);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+
+.qicraft-heading-1 { font-family: var(--qicraft-font-display); font-size: var(--qicraft-text-4xl); font-weight: 700; line-height: 1.2; letter-spacing: 0.03em; }
+.qicraft-heading-2 { font-family: var(--qicraft-font-display); font-size: var(--qicraft-text-3xl); font-weight: 600; line-height: 1.3; letter-spacing: 0.02em; }
+.qicraft-heading-3 { font-family: var(--qicraft-font-display); font-size: var(--qicraft-text-xl); font-weight: 600; line-height: 1.4; }
+.qicraft-heading-4 { font-family: var(--qicraft-font-body); font-size: var(--qicraft-text-lg); font-weight: 600; line-height: 1.4; }
+
+.qicraft-body { font-family: var(--qicraft-font-body); font-size: var(--qicraft-text-base); font-weight: 400; line-height: 1.75; }
+.qicraft-body-sm { font-family: var(--qicraft-font-body); font-size: var(--qicraft-text-sm); font-weight: 400; line-height: 1.6; }
+.qicraft-caption { font-family: var(--qicraft-font-body); font-size: var(--qicraft-text-xs); font-weight: 400; line-height: 1.5; color: var(--qicraft-muted); }
+.qicraft-label { font-family: var(--qicraft-font-body); font-size: var(--qicraft-text-sm); font-weight: 500; line-height: 1.4; color: var(--qicraft-muted); letter-spacing: 0.03em; text-transform: uppercase; }
+.qicraft-tag { font-family: var(--qicraft-font-body); font-size: var(--qicraft-text-xs); font-weight: 500; }
+.qicraft-mono { font-family: var(--qicraft-font-mono); font-size: var(--qicraft-text-sm); }

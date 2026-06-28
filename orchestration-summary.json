@@ -1,0 +1,283 @@
+{
+  "project": {
+    "name": "器韵 QiCraft H5",
+    "path": "e:\\Coding\\产品调研2\\qicraft-h5",
+    "operation": "create",
+    "deviceType": "mobile",
+    "language": "zh-CN",
+    "dashboardMode": false,
+    "replicationMode": null,
+    "sourceUrl": null,
+    "visualSpecExcerpt": null,
+    "styleDefinitionBrief": "古韵暖色瓷器文化图鉴，深赤陶主色+米色底+墨色字，宋体衬线标题+无衬线正文，博物馆级克制优雅，卡片边框层叠。",
+    "designRead": "文化图鉴 H5 / 传统文化爱好者 / 温暖博物馆质感 / 中等密度 / 避免冷色科技感",
+    "designDials": {
+      "layoutVariance": 3,
+      "motionIntensity": 2,
+      "visualDensity": 3
+    },
+    "styleContinuityAnchors": {
+      "colorSystem": {
+        "primaryColorRole": "深赤陶 #9B2C2C 用于主要操作按钮和选中状态",
+        "brandHuePolicy": "free-explore 单一主色调，窑口标签用暖金 #B8860B，信息辅助用深蓝 #2C4F6E",
+        "stateColors": "success #3D7A5F, warning #B8860B, error #9B2C2C, info #2C4F6E"
+      },
+      "shapeSystem": "radius-sm: 4px, radius-md: 8px, radius-lg: 12px, radius-full: 9999px",
+      "typographySystem": "display: Noto Serif SC / Georgia; body: Noto Sans SC / -apple-system; mono: IBM Plex Mono",
+      "spacingSystem": "xs: 4px, sm: 8px, md: 16px, lg: 24px, xl: 32px, 2xl: 48px",
+      "componentLanguage": "圆角卡片+边框，非阴影；标签药丸，瓷片式卡片网格",
+      "surfaceAndDepth": "卡片用 1px border #D4CBBF，静态 shadow alpha <= 0.05；弹层 shadow-elevated alpha 0.08",
+      "imageryAndIconography": "瓷器高清图为主，模拟 Met/大英博物馆藏品质感；图标用简洁线条",
+      "interactionTone": "轻柔过渡，尊重传统文化审美，不过度动效"
+    },
+    "specsConstraints": null,
+    "sharedProjectShellContract": {
+      "navigationShell": "底部无固定导航栏；页面顶栏：品牌名'器韵'+副标题+可选返回按钮",
+      "primaryColorSystem": "primary #9B2C2C 用于 CTA 和选中/高亮；辅助暖金 #B8860B 用于窑口标签",
+      "typographySystem": "标题 Noto Serif SC 衬线 / 正文 Noto Sans SC 无衬线 / 全局 line-height 1.75",
+      "radiusScale": "4-12px，药丸 9999px",
+      "surfaceDepthModel": "border-first 层叠，shadow alpha <= 0.05",
+      "ctaStyle": "深赤陶主色圆角按钮 8px radius，hover 加深 #B83A3A",
+      "alignmentRules": "内容左对齐为主，窑口 tab 居中，卡片 Grid 2 列等间距"
+    },
+    "generationTree": {
+      "root": {
+        "nodeId": "gen-project-shell",
+        "kind": "project-shell",
+        "pageIds": ["page-treasure-hall", "page-artifact-detail", "page-kiln-chronicle"],
+        "output": "partials/project-shell.html",
+        "sharedRegions": ["background-color", "base-font-family", "color-scheme", "container-max-width"],
+        "privateRegions": [],
+        "mutableSlots": ["activePageTitle", "showBackButton"],
+        "status": "planned",
+        "children": [
+          {
+            "nodeId": "gen-page-treasure-hall",
+            "kind": "page-leaf",
+            "pageIds": ["page-treasure-hall"],
+            "output": "pages/treasure-hall.html",
+            "sharedRegions": [],
+            "privateRegions": ["品牌区", "窑口 tab 导航", "器物 Grid", "每日一瓷"],
+            "mutableSlots": [],
+            "status": "planned",
+            "children": []
+          },
+          {
+            "nodeId": "gen-page-artifact-detail",
+            "kind": "page-leaf",
+            "pageIds": ["page-artifact-detail"],
+            "output": "pages/artifact-detail.html",
+            "sharedRegions": [],
+            "privateRegions": ["大图轮播", "器物信息", "寻根按钮", "关闭按钮"],
+            "mutableSlots": ["showBackButton"],
+            "status": "planned",
+            "children": []
+          },
+          {
+            "nodeId": "gen-page-kiln-chronicle",
+            "kind": "page-leaf",
+            "pageIds": ["page-kiln-chronicle"],
+            "output": "pages/kiln-chronicle.html",
+            "sharedRegions": [],
+            "privateRegions": ["窑口标题", "代表性器物缩略图", "六大板块内容", "关联器物"],
+            "mutableSlots": ["showBackButton"],
+            "status": "planned",
+            "children": []
+          }
+        ]
+      }
+    }
+  },
+  "designSource": {
+    "operatingMode": "free-explore",
+    "libraryIdentity": { "name": null, "id": null, "version": null, "scope": null, "path": null, "versionSource": null },
+    "cssFilePath": "e:\\Coding\\产品调研2\\qicraft-h5\\colors_and_type.css",
+    "brandPrefix": "qicraft",
+    "themeMode": "light",
+    "designDecisionSummary": "古韵暖色系统：米色底 #F7F4EE + 深赤陶主色 #9B2C2C + 暖金辅色 #B8860B + 墨色字 #2C2419。宋体衬线标题+无衬线正文。border-first 层叠模型。移动端优先 H5。",
+    "componentContractKind": null,
+    "forbiddenInventedComponents": [],
+    "allowedComponents": null,
+    "styleConstraints": {
+      "radiusMax": 12,
+      "spacingBase": 1,
+      "fontSizeBody": 16,
+      "fontSizeMin": 12,
+      "controlHeightDefault": 40,
+      "controlHeightLarge": 48
+    },
+    "productContext": {
+      "kitType": null,
+      "productType": "文化图鉴 H5 — 瓷器博物馆级鉴赏体验"
+    },
+    "actualTokenNameReference": [
+      { "semanticPurpose": "Page background", "tokenName": "qicraft-background" },
+      { "semanticPurpose": "Card/surface background", "tokenName": "qicraft-surface" },
+      { "semanticPurpose": "Primary text", "tokenName": "qicraft-foreground" },
+      { "semanticPurpose": "Secondary/muted text", "tokenName": "qicraft-muted" },
+      { "semanticPurpose": "Primary brand color (CTA, selection)", "tokenName": "qicraft-primary" },
+      { "semanticPurpose": "Primary hover state", "tokenName": "qicraft-primary-hover" },
+      { "semanticPurpose": "Primary light tint", "tokenName": "qicraft-primary-light" },
+      { "semanticPurpose": "Border color", "tokenName": "qicraft-border" },
+      { "semanticPurpose": "Divider/fill", "tokenName": "qicraft-divider" },
+      { "semanticPurpose": "Warm gold accent (kiln tags)", "tokenName": "qicraft-state-warning" },
+      { "semanticPurpose": "Display/heading font", "tokenName": "qicraft-font-display" },
+      { "semanticPurpose": "Body font", "tokenName": "qicraft-font-body" },
+      { "semanticPurpose": "Card border", "tokenName": "qicraft-card-border" },
+      { "semanticPurpose": "Small radius", "tokenName": "qicraft-radius-sm" },
+      { "semanticPurpose": "Medium radius", "tokenName": "qicraft-radius-md" },
+      { "semanticPurpose": "Large radius", "tokenName": "qicraft-radius-lg" }
+    ]
+  },
+  "pages": [
+    {
+      "nodeId": "page-treasure-hall",
+      "slug": "treasure-hall",
+      "title": "珍宝馆",
+      "htmlSrc": "pages/treasure-hall.html",
+      "pageIndex": 1,
+      "stateGroupId": null,
+      "stateRole": null,
+      "baseStatePageId": null,
+      "sharedShellContract": [],
+      "mutableRegions": [],
+      "derivedFromHtmlSrc": null,
+      "derivationType": "original",
+      "sourcePageId": null,
+      "sourceHtmlSrc": null,
+      "pageType": "showcase",
+      "businessScenario": "H5 首页，100 件瓷器按窑口分类的图鉴浏览主页面",
+      "visualNorthStar": "博物馆图鉴式器物浏览：温暖米色底上展示瓷器，每个窑口分区如展厅中的独立展柜",
+      "compositionPattern": "editorial-magazine-grid",
+      "continuityAnchors": ["brand header treatment", "kiln tab scroll style", "card border + grid rhythm", "warm color system"],
+      "libraryRestraintMode": false,
+      "uiKitPath": null,
+      "componentPlan": null,
+      "imagePlan": ["hero-ceramics.jpg", "kiln-thumbs.jpg"],
+      "chartsRequired": false,
+      "miniProgramStyle": false,
+      "qualityRisks": []
+    },
+    {
+      "nodeId": "page-artifact-detail",
+      "slug": "artifact-detail",
+      "title": "器物详情",
+      "htmlSrc": "pages/artifact-detail.html",
+      "pageIndex": 2,
+      "stateGroupId": null,
+      "stateRole": null,
+      "baseStatePageId": null,
+      "sharedShellContract": [],
+      "mutableRegions": [],
+      "derivedFromHtmlSrc": null,
+      "derivationType": "original",
+      "sourcePageId": null,
+      "sourceHtmlSrc": null,
+      "pageType": "showcase",
+      "businessScenario": "器物详情 Lightbox 弹层，大图轮播+元信息+寻根按钮",
+      "visualNorthStar": "博物馆展柜放大镜：沉浸式大图展示，信息整洁排列，寻根按钮如通向另一展厅的入口",
+      "compositionPattern": "full-bleed-image-stack",
+      "continuityAnchors": ["warm color system", "card border style", "typography hierarchy", "CTA button style"],
+      "libraryRestraintMode": false,
+      "uiKitPath": null,
+      "componentPlan": null,
+      "imagePlan": [],
+      "chartsRequired": false,
+      "miniProgramStyle": false,
+      "qualityRisks": []
+    },
+    {
+      "nodeId": "page-kiln-chronicle",
+      "slug": "kiln-chronicle",
+      "title": "窑口志",
+      "htmlSrc": "pages/kiln-chronicle.html",
+      "pageIndex": 3,
+      "stateGroupId": null,
+      "stateRole": null,
+      "baseStatePageId": null,
+      "sharedShellContract": [],
+      "mutableRegions": [],
+      "derivedFromHtmlSrc": null,
+      "derivationType": "original",
+      "sourcePageId": null,
+      "sourceHtmlSrc": null,
+      "pageType": "showcase",
+      "businessScenario": "窑口非遗技艺百科页面，六大板块内容+关联器物",
+      "visualNorthStar": "非遗文化百科长卷：从历史渊源到保护现状的完整叙事，代表性器物穿插其间",
+      "compositionPattern": "vertical-narrative-stack",
+      "continuityAnchors": ["warm color system", "card border style", "typography hierarchy", "kiln tag style"],
+      "libraryRestraintMode": false,
+      "uiKitPath": null,
+      "componentPlan": null,
+      "imagePlan": ["kiln-hero-ru.jpg"],
+      "chartsRequired": false,
+      "miniProgramStyle": false,
+      "qualityRisks": []
+    }
+  ],
+  "assets": [
+    {
+      "filename": "hero-ceramics.jpg",
+      "role": "critical-hero",
+      "owningPage": "treasure-hall",
+      "semanticDescription": "珍宝馆头部装饰：一组精美的中国瓷器特写，温润釉色，博物馆灯光氛围",
+      "status": "planned"
+    },
+    {
+      "filename": "kiln-thumbs.jpg",
+      "role": "supporting-content",
+      "owningPage": "treasure-hall",
+      "semanticDescription": "窑口分区展示缩略图：多件瓷器排列展示，展现不同窑口的釉色差异",
+      "status": "planned"
+    },
+    {
+      "filename": "kiln-hero-ru.jpg",
+      "role": "critical-hero",
+      "owningPage": "kiln-chronicle",
+      "semanticDescription": "窑口志头部：汝窑天青釉瓷器特写，柔和光线，展现天青釉色的温润质感",
+      "status": "planned"
+    }
+  ],
+  "wiringPlan": [
+    {
+      "sourceNodeId": "page-treasure-hall",
+      "domId": "cta-artifact",
+      "targetPageId": "page-artifact-detail"
+    },
+    {
+      "sourceNodeId": "page-artifact-detail",
+      "domId": "cta-kiln",
+      "targetPageId": "page-kiln-chronicle"
+    }
+  ],
+  "hiddenInteractionPlan": [
+    {
+      "sourceNodeId": "page-artifact-detail",
+      "domId": "back-treasure",
+      "targetPageId": "page-treasure-hall",
+      "hideEdge": true,
+      "reason": "return to list"
+    },
+    {
+      "sourceNodeId": "page-kiln-chronicle",
+      "domId": "link-treasure",
+      "targetPageId": "page-treasure-hall",
+      "hideEdge": true,
+      "reason": "关联器物跳回珍宝馆"
+    },
+    {
+      "sourceNodeId": "page-kiln-chronicle",
+      "domId": "back-detail",
+      "targetPageId": "page-artifact-detail",
+      "hideEdge": true,
+      "reason": "return"
+    },
+    {
+      "sourceNodeId": "page-treasure-hall",
+      "domId": "shortcut-kiln",
+      "targetPageId": "page-kiln-chronicle",
+      "hideEdge": true,
+      "reason": "secondary shortcut to kiln page"
+    }
+  ]
+}

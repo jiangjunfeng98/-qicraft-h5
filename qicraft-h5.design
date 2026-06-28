@@ -1,0 +1,375 @@
+{
+  "data": [
+    {
+      "id": "page-treasure-hall",
+      "title": "珍宝馆",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1782567300000,
+      "canvasData": {
+        "x": 0,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/treasure-hall.html",
+        "interactions": [
+          {
+            "domId": "cta-artifact",
+            "targetPageId": "page-artifact-detail",
+            "transitionLabel": "查看器物详情"
+          },
+          {
+            "domId": "shortcut-kiln",
+            "targetPageId": "page-kiln-chronicle",
+            "hideEdge": true,
+            "transitionLabel": "前往窑口志"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-artifact-detail",
+      "title": "器物详情",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1782567300000,
+      "canvasData": {
+        "x": 420,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/artifact-detail.html",
+        "interactions": [
+          {
+            "domId": "cta-kiln",
+            "targetPageId": "page-kiln-chronicle",
+            "transitionLabel": "寻根窑口"
+          },
+          {
+            "domId": "back-treasure",
+            "targetPageId": "page-treasure-hall",
+            "hideEdge": true,
+            "transitionLabel": "返回珍宝馆"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-kiln-chronicle",
+      "title": "窑口志",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1782567300000,
+      "canvasData": {
+        "x": 840,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/kiln-chronicle.html",
+        "interactions": [
+          {
+            "domId": "back-detail",
+            "targetPageId": "page-artifact-detail",
+            "hideEdge": true,
+            "transitionLabel": "返回器物详情"
+          },
+          {
+            "domId": "link-treasure",
+            "targetPageId": "page-treasure-hall",
+            "hideEdge": true,
+            "transitionLabel": "关联器物"
+          }
+        ]
+      }
+    },
+    {
+      "id": "image-001",
+      "title": "珍宝馆主视觉",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1782567400000,
+      "canvasData": {
+        "x": 0,
+        "y": 1588
+      },
+      "devMetadata": {
+        "imageSrc": "assets/hero-ceramics.jpg"
+      }
+    },
+    {
+      "id": "image-002",
+      "title": "窑口缩略图",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1782567400000,
+      "canvasData": {
+        "x": 420,
+        "y": 1588
+      },
+      "devMetadata": {
+        "imageSrc": "assets/kiln-thumbs.jpg"
+      }
+    },
+    {
+      "id": "image-003",
+      "title": "汝窑特写",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1782567400000,
+      "canvasData": {
+        "x": 840,
+        "y": 1588
+      },
+      "devMetadata": {
+        "imageSrc": "assets/kiln-hero-ru.jpg"
+      }
+    },
+    {
+      "id": "image-004",
+      "title": "汝窑天青釉碗",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1782567500000,
+      "canvasData": {
+        "x": 1260,
+        "y": 1588
+      },
+      "devMetadata": {
+        "imageSrc": "assets/porcelain1.svg"
+      }
+    },
+    {
+      "id": "image-005",
+      "title": "钧窑玫瑰紫釉碗",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1782567500000,
+      "canvasData": {
+        "x": 1680,
+        "y": 1588
+      },
+      "devMetadata": {
+        "imageSrc": "assets/porcelain2.svg"
+      }
+    },
+    {
+      "id": "image-006",
+      "title": "定窑白釉刻花梅瓶",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1782567500000,
+      "canvasData": {
+        "x": 2100,
+        "y": 1588
+      },
+      "devMetadata": {
+        "imageSrc": "assets/porcelain3.svg"
+      }
+    },
+    {
+      "id": "image-007",
+      "title": "景德镇青花缠枝莲瓶",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1782567500000,
+      "canvasData": {
+        "x": 2520,
+        "y": 1588
+      },
+      "devMetadata": {
+        "imageSrc": "assets/porcelain4.svg"
+      }
+    },
+    {
+      "id": "image-008",
+      "title": "龙泉窑青釉贯耳瓶",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1782567500000,
+      "canvasData": {
+        "x": 2940,
+        "y": 1588
+      },
+      "devMetadata": {
+        "imageSrc": "assets/porcelain5.svg"
+      }
+    },
+    {
+      "id": "image-009",
+      "title": "耀州窑青釉刻花碗",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1782567500000,
+      "canvasData": {
+        "x": 3360,
+        "y": 1588
+      },
+      "devMetadata": {
+        "imageSrc": "assets/porcelain6.svg"
+      }
+    },
+    {
+      "id": "image-010",
+      "title": "德化窑白釉观音立像",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1782567500000,
+      "canvasData": {
+        "x": 3780,
+        "y": 1588
+      },
+      "devMetadata": {
+        "imageSrc": "assets/porcelain7.svg"
+      }
+    },
+    {
+      "id": "image-011",
+      "title": "磁州窑白地黑花梅瓶",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1782567500000,
+      "canvasData": {
+        "x": 4200,
+        "y": 1588
+      },
+      "devMetadata": {
+        "imageSrc": "assets/porcelain8.svg"
+      }
+    },
+    {
+      "id": "image-012",
+      "title": "汝窑天青釉洗大图",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1782567500000,
+      "canvasData": {
+        "x": 4620,
+        "y": 1588
+      },
+      "devMetadata": {
+        "imageSrc": "assets/ru-ware-wash.svg"
+      }
+    },
+    {
+      "id": "image-013",
+      "title": "天青釉洗",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1782567500000,
+      "canvasData": {
+        "x": 5040,
+        "y": 1588
+      },
+      "devMetadata": {
+        "imageSrc": "assets/ru1.svg"
+      }
+    },
+    {
+      "id": "image-014",
+      "title": "天青釉碗",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1782567500000,
+      "canvasData": {
+        "x": 5460,
+        "y": 1588
+      },
+      "devMetadata": {
+        "imageSrc": "assets/ru2.svg"
+      }
+    },
+    {
+      "id": "image-015",
+      "title": "天青釉盘",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1782567500000,
+      "canvasData": {
+        "x": 5880,
+        "y": 1588
+      },
+      "devMetadata": {
+        "imageSrc": "assets/ru3.svg"
+      }
+    },
+    {
+      "id": "image-016",
+      "title": "天青釉尊",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1782567500000,
+      "canvasData": {
+        "x": 6300,
+        "y": 1588
+      },
+      "devMetadata": {
+        "imageSrc": "assets/ru4.svg"
+      }
+    },
+    {
+      "id": "image-017",
+      "title": "汝窑天青釉洗缩略",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1782567500000,
+      "canvasData": {
+        "x": 6720,
+        "y": 1588
+      },
+      "devMetadata": {
+        "imageSrc": "assets/rugrid1.svg"
+      }
+    },
+    {
+      "id": "image-018",
+      "title": "汝窑天青釉碗缩略",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1782567500000,
+      "canvasData": {
+        "x": 7140,
+        "y": 1588
+      },
+      "devMetadata": {
+        "imageSrc": "assets/rugrid2.svg"
+      }
+    },
+    {
+      "id": "image-019",
+      "title": "汝窑天青釉盘缩略",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1782567500000,
+      "canvasData": {
+        "x": 7560,
+        "y": 1588
+      },
+      "devMetadata": {
+        "imageSrc": "assets/rugrid3.svg"
+      }
+    },
+    {
+      "id": "image-020",
+      "title": "汝窑天青釉三足尊缩略",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1782567500000,
+      "canvasData": {
+        "x": 7980,
+        "y": 1588
+      },
+      "devMetadata": {
+        "imageSrc": "assets/rugrid4.svg"
+      }
+    }
+  ],
+  "config": {
+    "autoLayout": true,
+    "deviceType": "mobile",
+    "projectName": "器韵 QiCraft H5",
+    "showEdge": true
+  }
+}

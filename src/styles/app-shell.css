@@ -1,0 +1,291 @@
+/* ==========================================
+   器韵 QiCraft — App Shell
+   手机外壳 · 状态栏 · 底部 Tab · 页面切换
+   让 H5 以 App Demo 形态呈现
+   ========================================== */
+
+/* ---- App 级重置：去掉浏览器原生交互感 ---- */
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  overflow: hidden;                          /* 外层不滚动，仅 .app-content 滚动 */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+  -webkit-user-select: none;
+  /* 桌面展示背景：暖灰渐变，衬托手机外壳 */
+  background: radial-gradient(120% 80% at 50% 0%, #EFE9DD 0%, #D6CDBB 100%);
+}
+/* 允许正文段落选中文本（更接近原生阅读体验） */
+.app-content p, .app-content .qicraft-body-sm { user-select: text; -webkit-user-select: text; }
+
+/* ---- 展示舞台：居中放置手机 ---- */
+.app-stage {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 16px;
+  box-sizing: border-box;
+}
+
+/* ---- 手机外壳 ---- */
+.app-device {
+  position: relative;
+  width: 100%;
+  max-width: 414px;                          /* iPhone 基准宽度 */
+  height: min(880px, calc(100vh - 56px));
+  height: min(880px, calc(100dvh - 56px));
+  background-color: var(--qicraft-background);
+  border: 12px solid #1b1714;                /* 深色边框 */
+  border-radius: 48px;
+  box-shadow:
+    0 1px 0 1px #2a2420 inset,
+    0 30px 60px -20px rgba(44, 36, 25, 0.45),
+    0 12px 24px -12px rgba(44, 36, 25, 0.3);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 灵动岛 / 顶部听筒 */
+.app-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 118px;
+  height: 26px;
+  background: #1b1714;
+  border-radius: 0 0 18px 18px;
+  z-index: 40;
+}
+
+/* ---- 状态栏 ---- */
+.app-statusbar {
+  flex-shrink: 0;
+  height: 44px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--qicraft-background);
+  font-family: var(--qicraft-font-body);
+  color: var(--qicraft-foreground);
+  z-index: 30;
+}
+.app-statusbar-time {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding-left: 4px;
+}
+.app-statusbar-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-right: 4px;
+}
+.app-statusbar-icons i {
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  color: var(--qicraft-foreground);
+}
+
+/* ---- 内容区 ---- */
+.app-content {
+  position: relative;
+  flex: 1;
+  min-height: 0;                             /* 关键：让 flex 子项可滚动 */
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  background-color: var(--qicraft-background);
+  transition: opacity 180ms cubic-bezier(.2,.8,.2,1);
+}
+.app-content::-webkit-scrollbar { display: none; }
+.app-content.is-leaving { opacity: 0; }
+
+/* 进入页面时的过渡（每页加载即播放） */
+.app-content > * { animation: app-page-enter 280ms cubic-bezier(.2,.8,.2,1) both; }
+@keyframes app-page-enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 外壳内的 .qicraft-shell 不再用 100vh，改为撑满内容区 */
+.app-content .qicraft-shell { min-height: 100%; }
+
+/* ---- 底部 Tab 栏 ---- */
+.app-tabbar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  height: 60px;
+  padding-bottom: env(safe-area-inset-bottom);
+  background-color: var(--qicraft-surface);
+  border-top: 1px solid var(--qicraft-divider);
+  z-index: 30;
+}
+.app-tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  text-decoration: none;
+  color: var(--qicraft-subtle);
+  font-family: var(--qicraft-font-body);
+  transition: color 140ms cubic-bezier(.2,.8,.2,1);
+  -webkit-tap-highlight-color: transparent;
+}
+.app-tab-icon { width: 22px; height: 22px; }
+.app-tab-label { font-size: 11px; font-weight: 500; letter-spacing: 0.02em; }
+.app-tab.is-active { color: var(--qicraft-primary); }
+.app-tab.is-active .app-tab-label { font-weight: 600; }
+.app-tab:active { opacity: 0.7; }
+
+/* ============================================================
+   覆盖式浮层：在外壳内 absolute 覆盖（不再 fixed 占整个桌面）
+   ============================================================ */
+.lightbox {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+}
+
+/* 详情页大图区高度：改为容器相对，避免桌面 55vh 溢出手机外壳 */
+.app-content .lightbox .carousel-section {
+  height: 44%;
+  min-height: 220px;
+}
+
+/* ============================================================
+   移动端：取消手机外壳，全屏铺满（真实手机访问时）
+   ============================================================ */
+@media (max-width: 520px) {
+  .app-stage { padding: 0; }
+  .app-device {
+    max-width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .app-notch { display: none; }
+}
+
+/* ============================================================
+   窑口志 · 窑口切换 chip 行
+   ============================================================ */
+.kiln-switcher {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 10px 16px 8px;
+  background-color: var(--qicraft-background);
+  border-bottom: 1px solid var(--qicraft-divider);
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.kiln-switcher::-webkit-scrollbar { display: none; }
+.kiln-switcher-chip {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  padding: 0 14px;
+  border-radius: var(--qicraft-radius-full);
+  border: 1px solid var(--qicraft-border);
+  background-color: var(--qicraft-surface);
+  color: var(--qicraft-foreground);
+  font-family: var(--qicraft-font-body);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 120ms cubic-bezier(.2,.8,.2,1), color 120ms, border-color 120ms;
+  -webkit-tap-highlight-color: transparent;
+}
+.kiln-switcher-chip:hover { border-color: var(--qicraft-subtle); }
+.kiln-switcher-chip.is-active {
+  background-color: var(--qicraft-primary);
+  color: var(--qicraft-surface);
+  border-color: var(--qicraft-primary);
+}
+
+/* ============================================================
+   关于页
+   ============================================================ */
+.about-hero {
+  text-align: center;
+  padding: 24px 16px 8px;
+}
+.about-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background-color: var(--qicraft-primary);
+  margin-bottom: 12px;
+}
+.about-logo span {
+  font-family: var(--qicraft-font-display);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--qicraft-elevated);
+}
+.about-section {
+  padding: 16px;
+}
+.about-five-kilns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.about-kiln-card {
+  border: 1px solid var(--qicraft-border);
+  border-radius: var(--qicraft-radius-md);
+  background-color: var(--qicraft-surface);
+  padding: 12px;
+}
+.about-kiln-card h4 {
+  margin: 0 0 4px;
+  font-family: var(--qicraft-font-display);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--qicraft-primary);
+}
+.about-kiln-card p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--qicraft-muted);
+}
+.about-footer {
+  text-align: center;
+  padding: 20px 16px 8px;
+  font-size: 11px;
+  color: var(--qicraft-subtle);
+  font-family: var(--qicraft-font-body);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .app-content > * { animation: none; }
+  .app-content { transition: none; }
+}
